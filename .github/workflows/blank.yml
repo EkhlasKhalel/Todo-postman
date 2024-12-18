@@ -39,7 +39,7 @@ jobs:
           -e "./Development.postman_environment.json" \
           -globals "./workspace.postman_globals.json" \
           -r htmlextra \
-          --reporter-htmlextra-export "./newman-report/report.html"
+          -reporter-htmlextra-export "./newman-report/report.html"
 
 
       # Upload HTML Report as artifact
