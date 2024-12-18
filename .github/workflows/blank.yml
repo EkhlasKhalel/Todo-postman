@@ -37,7 +37,7 @@ jobs:
         run: |
          newman run "./Todo-Qacart.postman_collection.json" \
           -e "./Development.postman_environment.json" \
-          --globals "./workspace.postman_globals.json" \
+          -globals "./workspace.postman_globals.json" \
           -r htmlextra \
           --reporter-htmlextra-export "./newman-report/report.html"
 
