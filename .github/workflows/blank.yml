@@ -27,12 +27,19 @@ jobs:
         shell: pwsh
         run:
           npm install -g newman-reporter-htmlextra
+      # Create report folder
+      - name: Create report folder
+        run: mkdir newman-report
 
       # Export HTML Report
       - name: Run Postman Collection
         shell: pwsh
         run: |
-          newman run ".\Todo-Qacart.postman_collection.json" -e ".\Development.postman_environment.json"  --globals ".\workspace.postman_globals.json" -r htmlextra --reporter-htmlextra-export newman-report.html\report.html
+         newman run "./Todo-Qacart.postman_collection.json" \
+          -e "./Development.postman_environment.json" \
+          --globals "./workspace.postman_globals.json" \
+          -r htmlextra \
+          --reporter-htmlextra-export "./newman-report/report.html"
 
 
       # Upload HTML Report as artifact
